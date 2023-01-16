@@ -19,6 +19,7 @@ function saveToCrudCrud(event) {
 }
 
 
+
 function showNewUserOnScreen(user){
     document.getElementById('email').value = '';
     document.getElementById('username').value = '';
@@ -32,4 +33,20 @@ function showNewUserOnScreen(user){
 
     parentNode.innerHTML = parentNode.innerHTML + childHTML;
 }
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    axios.get("https://crudcrud.com/api/96d57e3b27cc4de4bf006a1e210375a4/bookingappointment")
+    .then((response) => {
+        for(var i=0;i<response.data.length;i++){
+            showNewUserOnScreen(response.data[i]);
+        }
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+    }
+)
+
 
